@@ -30,27 +30,45 @@
         <div class="bio-section">
           <h1 class="page-title">Luminary</h1>
           <div class="bio-text">
-            <p>Luminary is designed to make navigating UNC’s campus more accessible for individuals with mobility limitations. As a UI/UX designer on this project, I focused on designing a light mode interface, a feature requested by users during testing of the initial app. My goal was to create a clean, readable, and visually consistent interface that enhances usability and accessibility.</p>
+            <p>Luminary is an accessibility-focused navigation app developed by App Team Carolina to help students at UNC Chapel Hill find safe and accessible routes across campus. The app allows users to plan their paths while avoiding obstacles such as construction zones or uneven terrain. It also includes a community-driven reporting feature, enabling users to share real-time updates about new barriers on common routes.
+            <br>
+            <br>
+            During usability testing, several users expressed a desire for a more comfortable viewing experience in different lighting conditions. In response, my role focused on designing a light mode interface that maintained visual clarity while preserving the app’s accessible color contrast standards. Through this project, I learned how thoughtful visual design choices can directly enhance inclusivity and usability for all users.</p>
             <div class="role-tag">
               <span>Role: UI/UX Designer</span>
             </div>
           </div>
         </div>
         <div class="about-image">
-          <img src="img/lumlg.png" alt="Luminary app mockup">
+          <img class="ui-hero-icon" src="img/lumlg.png" alt="Luminary app mockup">
         </div>
       </div>
     </div>
   </section>
 
   <!-- Process -->
-  <section class="experience">
+  <section class="experience" id="process">
     <div class="experience-container">
       <div class="experience-title"><h1>Process</h1></div>
+      <!-- Sticky Side Navigation (inside Process section only) -->
+      <nav class="sticky-side-nav" id="process-nav">
+        <a href="#user-research" class="sticky-nav-item active" data-section="user-research">
+          <span class="nav-indicator"></span>
+          Research
+        </a>
+        <a href="#design-goals" class="sticky-nav-item" data-section="design-goals">
+          <span class="nav-indicator"></span>
+          Design Goals
+        </a>
+        <a href="#ui-iteration" class="sticky-nav-item" data-section="ui-iteration">
+          <span class="nav-indicator"></span>
+          UI Iteration
+        </a>
+      </nav>
       <div class="timeline">
         <div class="timeline-line"></div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="user-research">
           <div class="timeline-dot dot-1"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -65,7 +83,8 @@
           </div>
         </div>
 
-        <div class="experience-item">
+
+        <div class="experience-item" id="design-goals">
           <div class="timeline-dot dot-2"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -108,7 +127,7 @@
           </div>
         </div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="ui-iteration">
           <div class="timeline-dot dot-3"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -143,10 +162,10 @@
   </section>
 
   <!-- Outcome -->
-  <section class="experience">
+  <section class="experience" id="outcome">
     <div class="experience-container">
       <div class="experience-title"><h1>Outcome</h1></div>
-      <div class="experience-card" style="margin: 0 auto;">
+      <div class="experience-card">
         <h3>Results</h3>
         <p>Working on Luminary gave me the opportunity to directly address user needs by introducing a light mode interface. While my role focused on adapting the existing design, the process pushed me to think critically about accessibility, consistency, and user preference. By maintaining brand identity and ensuring strong readability in both modes, I was able to expand the app’s flexibility without compromising its core design. This project reinforced the importance of listening to user feedback and demonstrated how even small interface adjustments can have a meaningful impact on overall usability</p>
       </div>
@@ -163,6 +182,63 @@
       </div>
     </div>
   </footer>
+  
 
+    <script>
+      // Header height CSS var + local headerHeight value
+      function setHeaderHeight() {
+        const header = document.querySelector('header');
+        const h = header ? header.offsetHeight : 72;
+        document.documentElement.style.setProperty('--header-height', h + 'px');
+        return h;
+      }
+
+      let headerHeight = setHeaderHeight();
+      window.addEventListener('load', () => { headerHeight = setHeaderHeight(); updateActiveNav(); });
+      window.addEventListener('resize', () => { headerHeight = setHeaderHeight(); });
+
+      // Sticky navigation scroll highlighting (header-aware)
+      const navItems = Array.from(document.querySelectorAll('.sticky-nav-item'));
+      const sections = Array.from(document.querySelectorAll('#process [id]')).filter(s => s.id && s.id.length);
+
+      function updateActiveNav() {
+        let current = '';
+        const buffer = 12; // pixels below header to consider "at top"
+
+        sections.forEach(section => {
+          const rect = section.getBoundingClientRect();
+          const topFits = rect.top <= headerHeight + buffer;
+          const bottomFits = rect.bottom > headerHeight + buffer;
+          if (topFits && bottomFits) {
+            current = section.id;
+          }
+        });
+
+        navItems.forEach(item => item.classList.toggle('active', item.getAttribute('data-section') === current));
+      }
+
+      // Update on scroll (passive)
+      window.addEventListener('scroll', updateActiveNav, { passive: true });
+      // initial update
+      updateActiveNav();
+
+      // Smooth scroll behavior for nav links with header offset
+      navItems.forEach(item => {
+        item.addEventListener('click', (e) => {
+          e.preventDefault();
+          const targetId = item.getAttribute('href');
+          const targetSection = document.querySelector(targetId);
+          if (!targetSection) return;
+          const targetRect = targetSection.getBoundingClientRect();
+          const targetY = window.pageYOffset + targetRect.top - headerHeight - 8; // small gap
+          window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+          // update URL hash without jumping
+          history.replaceState(null, '', targetId);
+          // set active immediately for perceived responsiveness
+          navItems.forEach(it => it.classList.remove('active'));
+          item.classList.add('active');
+        });
+      });
+    </script>
 </body>
 </html>

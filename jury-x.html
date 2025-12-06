@@ -23,6 +23,8 @@
     </nav>
   </header>
 
+
+
   <!-- Hero -->
   <section class="about-hero" style="padding-top: 7rem;">
     <div class="about-container">
@@ -32,8 +34,15 @@
           <h1 class="page-title">Jury-X Redesign</h1>
           <div class="bio-text">
           
-            <p>Jury X is a platform built on trust. It connects people with legal professionals during high stakes, often stressful moments. However, when I first analyzed their website, I found that instead of reassuring users, the interface created confusion. The navigation made it difficult to understand who the team was, what they offered, and how to get started. For this redesign, my goal was to remove those barriers. I focused on creating a clearer, more intuitive experience that makes information accessible at first glance while reinforcing Jury X’s brand identity and credibility.
+            <p>Jury-X is a jury research and consulting firm that supports legal teams by analyzing juror profiles, detecting bias, and guiding trial strategy. Their work is grounded in deep data, fast turnaround, and credible insights.
+            <br>
+            <br>
+            When I first evaluated their website, I found that despite an authoritative brand, the interface often obscured core information. Navigation was complex, and users could not clearly find who the team was, what the services involved, or how to get started.
+            <br>
+            <br>
+            For my redesign, I addressed these barriers by crafting a more intuitive and transparent interface. I streamlined navigation, elevated critical content, and reinforced Jury-X’s authority through clear visual hierarchy and accessible layout.
             </p>
+            
             <div class="role-tag">
               <span>Role: UI/UX Designer</span>
             </div>
@@ -47,13 +56,48 @@
   </section>
 
   <!-- Key Sections -->
-  <section class="experience">
+  <section class="experience" id="process">
     <div class="experience-container">
       <div class="experience-title"><h1>Process</h1></div>
+      <!-- Sticky Side Navigation (inside Process section only) -->
+      <nav class="sticky-side-nav" id="process-nav">
+        <a href="#audience-analysis" class="sticky-nav-item active" data-section="audience-analysis">
+          <span class="nav-indicator"></span>
+          Audience Analysis
+        </a>
+        <a href="#persona-list" class="sticky-nav-item" data-section="persona-list">
+          <span class="nav-indicator"></span>
+          Persona List
+        </a>
+        <a href="#card-sort" class="sticky-nav-item" data-section="card-sort">
+          <span class="nav-indicator"></span>
+          Card Sort & Info Hierarchy
+        </a>
+        <a href="#user-flows" class="sticky-nav-item" data-section="user-flows">
+          <span class="nav-indicator"></span>
+          User Flows
+        </a>
+        <a href="#low-fidelity" class="sticky-nav-item" data-section="low-fidelity">
+          <span class="nav-indicator"></span>
+          Low-Fidelity Wireframes
+        </a>
+        <a href="#ui-kit" class="sticky-nav-item" data-section="ui-kit">
+          <span class="nav-indicator"></span>
+          UI Kit
+        </a>
+        <a href="#high-fidelity" class="sticky-nav-item" data-section="high-fidelity">
+          <span class="nav-indicator"></span>
+          High-Fidelity Wireframes
+        </a>
+        <a href="#user-testing" class="sticky-nav-item" data-section="user-testing">
+          <span class="nav-indicator"></span>
+          User Testing & Design Changes
+        </a>
+      </nav>
       <div class="timeline">
         <div class="timeline-line"></div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="audience-analysis">
           <div class="timeline-dot dot-1"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -66,7 +110,7 @@
           </div>
         </div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="persona-list">
           <div class="timeline-dot dot-1"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -112,7 +156,7 @@
           </div>
         </div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="card-sort">
           <div class="timeline-dot dot-1"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -134,7 +178,7 @@
           </div>
         </div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="user-flows">
           <div class="timeline-dot dot-2"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -156,7 +200,7 @@
           </div>
         </div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="low-fidelity">
           <div class="timeline-dot dot-2"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -185,7 +229,7 @@
           </div>
         </div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="ui-kit">
           <div class="timeline-dot dot-3"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -203,7 +247,7 @@
           </div>
         </div>
 
-        <div class="experience-item">
+        <div class="experience-item" id="high-fidelity">
           <div class="timeline-dot dot-3"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -232,7 +276,7 @@
 
         
 
-        <div class="experience-item">
+        <div class="experience-item" id="user-testing">
           <div class="timeline-dot dot-3"></div>
           <div class="experience-card">
             <div class="experience-row">
@@ -316,10 +360,10 @@
   </section>
 
   <!-- Outcome / Result -->
-  <section class="experience">
+  <section class="experience" id="outcome">
     <div class="experience-container">
       <div class="experience-title"><h1>Outcome</h1></div>
-      <div class="experience-card" style="margin: 0 auto;">
+      <div class="experience-card">
         <h3>Results</h3>
         <p>With the design changes complete, my final prototype was ready. The Jury X redesign transforms a confusing, cluttered interface into a clear, user-friendly experience that builds trust and simplifies navigation
           <br>
@@ -357,6 +401,63 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Header height CSS var + local headerHeight value
+    function setHeaderHeight() {
+      const header = document.querySelector('header');
+      const h = header ? header.offsetHeight : 72;
+      document.documentElement.style.setProperty('--header-height', h + 'px');
+      return h;
+    }
+
+    let headerHeight = setHeaderHeight();
+    window.addEventListener('load', () => { headerHeight = setHeaderHeight(); updateActiveNav(); });
+    window.addEventListener('resize', () => { headerHeight = setHeaderHeight(); });
+
+    // Sticky navigation scroll highlighting (header-aware)
+    const navItems = Array.from(document.querySelectorAll('.sticky-nav-item'));
+    const sections = Array.from(document.querySelectorAll('#process [id]')).filter(s => s.id && s.id.length);
+
+    function updateActiveNav() {
+      let current = '';
+      const buffer = 12; // pixels below header to consider "at top"
+
+      sections.forEach(section => {
+        const rect = section.getBoundingClientRect();
+        const topFits = rect.top <= headerHeight + buffer;
+        const bottomFits = rect.bottom > headerHeight + buffer;
+        if (topFits && bottomFits) {
+          current = section.id;
+        }
+      });
+
+      navItems.forEach(item => item.classList.toggle('active', item.getAttribute('data-section') === current));
+    }
+
+    // Update on scroll (passive)
+    window.addEventListener('scroll', updateActiveNav, { passive: true });
+    // initial update
+    updateActiveNav();
+
+    // Smooth scroll behavior for nav links with header offset
+    navItems.forEach(item => {
+      item.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetId = item.getAttribute('href');
+        const targetSection = document.querySelector(targetId);
+        if (!targetSection) return;
+        const targetRect = targetSection.getBoundingClientRect();
+        const targetY = window.pageYOffset + targetRect.top - headerHeight - 8; // small gap
+        window.scrollTo({ top: Math.max(0, targetY), behavior: 'smooth' });
+        // update URL hash without jumping
+        history.replaceState(null, '', targetId);
+        // set active immediately for perceived responsiveness
+        navItems.forEach(it => it.classList.remove('active'));
+        item.classList.add('active');
+      });
+    });
+  </script>
 
 </body>
 </html>
