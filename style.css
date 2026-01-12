@@ -1,16 +1,25 @@
-/* Reset */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-  }
+/* ===================================
+   GLOBAL RESET & BASE STYLES
+   =================================== */
 
-  body {
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Body: system font stack, default line-height, dark text, hide horizontal scroll */
+body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    line-height: 1.6;
-    color: #222;
+  line-height: 1.6;
+  color: #222;
   overflow-x: hidden;
-  }
+}
+
+/* Smooth scrolling for anchor links */
+html {
+  scroll-behavior: smooth;
+}
   
   /* Navbar */
   header {
@@ -397,7 +406,7 @@ footer {
 @media (max-width: 1024px) {
   .hero-content {
     flex-direction: column;
-    text-align: center;
+    text-align: left;
     gap: 2rem;
   }
   
@@ -407,6 +416,11 @@ footer {
   
   .hero-text h1 {
     font-size: 2rem;
+  }
+  
+  /* Hide hero image on iPad */
+  .hero-img {
+    display: none;
   }
   
   .hero-img img {
@@ -420,10 +434,9 @@ footer {
     gap: 2rem;
   }
 
-  
+  /* Hide about/case study images on iPad */
   .about-image {
-    order: 1; /* image below */
-    justify-content: center;
+    display: none;
   }
   
   .bio-section {
@@ -489,6 +502,11 @@ footer {
   
   .hero-text p {
     font-size: 1rem;
+  }
+  
+  /* Hide hero image on mobile */
+  .hero-img {
+    display: none;
   }
   
   .projects {
@@ -1189,6 +1207,7 @@ img[src=""] {
   .case-juryx .about-image,
   .case-luminary .about-image,
   .case-sonar .about-image {
+    display: none;
     order: 1;
     justify-content: flex-end;
     height: 300px;
@@ -1211,7 +1230,7 @@ img[src=""] {
   .about-container { padding: 0 1rem; }
   .about-content { grid-template-columns: 1fr; gap: 2rem; margin: 0 auto; max-width: 85%; }
   .bio-section { order: 0; }
-  .about-image { order: 1; justify-content: center; margin: 0 auto; }
+  .about-image { display: none; }
   .about-image img { max-width: 320px; height: 320px; }
   .skills-grid { grid-template-columns: 1fr; gap: 1.25rem; }
   .timeline { padding-left: 0; }
@@ -1235,11 +1254,11 @@ img[src=""] {
   
   .page-title {
     font-size: 2rem;
-    text-align: center;
+    text-align: left;
   }
   
   .bio-text {
-    text-align: center;
+    text-align: left;
   }
 }
 
@@ -1248,6 +1267,7 @@ img[src=""] {
   .about-container { padding: 0 0.75rem; }
   .about-title h1 { font-size: 1.3rem; padding: 0.6rem 1.5rem; }
   .bio-title h2 { font-size: 1rem; padding: 0.5rem 1rem; }
+  .about-image { display: none; }
   .about-image img { max-width: 100%; height: 300px; }
   
   /* Case-study heroes: compact logo on small mobile, centered */
@@ -1268,7 +1288,7 @@ img[src=""] {
   
   .page-title {
     font-size: 1.5rem;
-    text-align: center;
+    text-align: left;
   }
   
   .bio-text {
@@ -1428,7 +1448,19 @@ img[src=""] {
   flex-direction: column;
 }
 
-@media (max-width: 830px) {
+@media (max-width: 828px) {
+  /* Stack experience row images below text */
+  .experience-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .experience-row img {
+    width: 100%;
+    max-width: 100%;
+    margin-top: 1rem;
+  }
+  
   .luminary-images .sonar-imgs figure {
     max-width: 100%;
     flex-direction: column;
@@ -1524,17 +1556,44 @@ img[src=""] {
   .case-uichallenges .page-title .case-juryx .case-sonar .case-luminary{ font-size: 1.8rem; }
 }
 
+.role-conatiner{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 1rem;
+}
 /* UI Challenges Page Styles */
+.role-conatiner {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: 1rem;
+}
+
 .role-tag {
   background: white;
   border: 2px solid #222;
   border-radius: 18px;
   padding: 0.3rem 0.7rem;
+  font-size: 0.9rem;
   display: inline-block;
-  margin-top: 1rem;
+  margin-bottom: 0.5rem;
   font-weight: 500;
   color: #222;
   white-space: nowrap;
+}
+
+@media (max-width: 480px) {
+  .role-conatiner {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .role-tag {
+    width: 100%;
+    text-align: center;
+    white-space: normal;
+  }
 }
 
 .challenge-description {
