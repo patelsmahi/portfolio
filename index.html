@@ -20,6 +20,11 @@
         <li><a href="patelmahi.pdf" target="_blank">Resume</a></li>
         <li><a href="https://www.linkedin.com/in/mahispatel" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin-in"></i></a></li>
       </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </nav>
   </header>
 
@@ -28,10 +33,15 @@
     <div class="hero-content">
       <div class="hero-text">
         <div class="tag-blob">
-          <span class="tag">Hello!</span>
+          <span class="tag">Open to UI/UX Opportunities • Available Summer 2026 </span>
         </div>
-        <h1>My name is <strong>Mahi Patel</strong> and I am a <strong>UI/UX Designer</strong>.</h1>
-        <p>I am a UI/UX designer and Information Science student at UNC Chapel Hill passionate about creating intuitive, human-centered digital experiences.</p>
+        <br>
+        <br>
+        <h1>Hello! My name is <strong>Mahi Patel</strong> and I am a <strong>UI/UX Designer</strong>.</h1>
+        <p>I am a UI/UX designer and Information Science student at UNC Chapel Hill. My experience working as an IT technician exposed me to the everyday frustrations users face with technology, inspiring me to design intuitive and user friendly digital experiences.
+        </p>
+        
+        
         <a href="about.html" class="btn">More About Me</a>
       </div>
       <div class="hero-img">
@@ -44,31 +54,57 @@
   <section id="projects" class="projects">
     <div class="projects-header">
       <div class="projects-button"> <h3> Projects </h3> </div>
-      <h2>These are some of my recent projects!</h2>
+      <h2>Featured UI/UX Projects
+      </h2>
+     <p class="projects-description">
+      A selection of UI/UX projects focused on creating intuitive and user centered digital experiences.
+     </p>
+
     </div>
+    
+    
+    
     <div class="project-grid">
       <a class="project-card project-card-link" href="jury-x.html">
-        <img src="img/Jury-Xlogo2.webp" alt="Jury-X" id="jury-x-logo">
+        <img src="img/Jury-Xlogo2.webp" alt="Jury-X" id="jury-x-logo" style="border: 2px solid #222;">
         <h3>Jury-X Website Redesign</h3>
         <p>Redesigned a legal company platform to build trust through clearer navigation and a more intuitive user experience.</p>
-        
+        <div class="tag-blob">
+          <span class="tag">UI Design</span>
+        </div>
+         <div class="tag-blob">
+          <span class="tag">Information Architecture</span>
+        </div>
       </a>
       <a class="project-card project-card-link" href="luminary.html">
-        <img src="img/lumlg.png" alt="Luminary" id="lum-logo">
+        <img src="img/lumlg.png" alt="Luminary" id="lum-logo" style="border: 2px solid #222;">
         <h3>Luminary - UI/UX Designer</h3>
         <p>Designed key interfaces for an accessible navigation app helping UNC students find barrier-free routes across campus.</p>
+        <div class="tag-blob">
+          <span class="tag">UI Design</span>
+        </div>
+        <div class="tag-blob">
+          <span class="tag">Accessibility</span>
+        </div>
       </a>
-      <a class="project-card project-card-link" href="sonar.html">
-        <img src="img/sonar.png" alt="Sonar" id="sonar-logo">
+      <a class="project-card project-card-link" href="sonar.html" style="border: 2px solid #222;">
+        <img src="img/sonar.png" alt="Sonar" id="sonar-logo" style="border: 2px solid #222;">
         <h3>Sonar (Personal Project)</h3>
         <p>Created a fun, swipe-based music discovery app that matches listeners with new songs.</p>
-       
+        <div class="tag-blob">
+          <span class="tag">UI Design</span>
+        </div>
+        <div class="tag-blob">
+          <span class="tag">User Research</span>
+        </div>
       </a>
-      <a class="project-card project-card-link" href="uichallenges.html">
-        <img src="img/uichallange.png" alt="UI Challenges">
+      <a class="project-card project-card-link" href="uichallenges.html" style="border: 2px solid #222;">
+        <img src="img/uichallange.png" alt="UI Challenges" style="border: 2px solid #222;">
         <h3>UI Challenges</h3>
         <p>Explored creative UI layouts through a series of design challenges focused on accessibility, aesthetics, and experimentation.</p>
-        
+         <div class="tag-blob">
+          <span class="tag">Design Thinking </span>
+        </div>
       </a>
     </div>
   </section>
@@ -89,6 +125,33 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 </html>

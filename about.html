@@ -20,6 +20,11 @@
         <li><a href="patelmahi.pdf" target="_blank">Resume</a></li>
         <li><a href="https://linkedin.com" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin-in"></i></a></li>
       </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </nav>
   </header>
 
@@ -32,9 +37,6 @@
       
       <div class="about-content">
         <div class="bio-section">
-          <div class="bio-title">
-            <h2>Bio</h2>
-          </div>
           <div class="bio-text">
             <p>Hello! I’m Mahi Patel, a senior at UNC Chapel Hill majoring in Information Science with a minor in Media and Journalism. I’m in my final year of university, where I’ve shaped my studies around my passion for UI/UX design.</p>
             
@@ -44,11 +46,13 @@
 
             <p>In my free time, I enjoy baking and taking long scenic walks, which help me slow down, notice details, and find inspiration in everyday life. </p>
           </div>
+
+
         </div>
-        
-        <div class="about-image">
-          <img src="img/Mahiwithdog.jpeg" alt="Mahi Patel with golden retriever">
-        </div>
+
+          <!-- <div class="about-image">
+            <img src="img/" alt="mahi2" style="width: 300px; height: 300px; border: 2px solid #000; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          </div> -->
       </div>
     </div>
   </section>
@@ -65,7 +69,7 @@
         
         <div class="experience-item">
           <div class="timeline-dot dot-1"></div>
-          <div class="experience-card">
+          <div class="experience-card" style="border: 2px solid #222;">
             <h3>App Team Carolina</h3>
             <p class="location">Chapel Hill, NC</p>
             <p class="role">UI/UX Designer</p>
@@ -79,7 +83,7 @@
         
         <div class="experience-item">
           <div class="timeline-dot dot-2"></div>
-          <div class="experience-card">
+          <div class="experience-card" style="border: 2px solid #222;">
             <h3>UNC Model United Nations Conference (UNCMUNC)</h3>
             <p class="location">Chapel Hill, NC</p>
             <p class="role">Design & Communications Coordinator</p>
@@ -92,8 +96,8 @@
         </div>
         
         <div class="experience-item">
-          <div class="timeline-dot dot-3"></div>
-          <div class="experience-card">
+          <div class="timeline-dot dot-3" style="border: 2px solid #222;"></div>
+          <div class="experience-card" style="border: 2px solid #222;">
             <h3>North Carolina Department of Transportation (NCDOT)</h3>
             <p class="location">Raleigh, NC</p>
             <p class="role">Data Analysis Intern</p>
@@ -172,6 +176,33 @@
       </div>
     </div>
   </footer>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
+  </script>
 
 </body>
 </html>

@@ -23,6 +23,11 @@
         <li><a href="patelmahi.pdf" target="_blank">Resume</a></li>
         <li><a href="https://www.linkedin.com/in/mahispatel" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin-in"></i></a></li>
       </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </nav>
   </header>
 
@@ -33,16 +38,26 @@
       <div class="about-content case-row">
         <div class="bio-section">
           <h1 class="page-title">User Interface Challenges</h1>
+
+
+          <div  class="about-sonar-section">
           <div class="bio-text">
             
             <p>As part of developing my UI/UX skills, I’ve taken on a variety of UI challenges to explore new techniques and push my creativity. These challenges gave me the opportunity to experiment with different layouts, visual styles, and interaction patterns while strengthening my design fundamentals. Along the way, I also sought feedback from peers, which helped me refine my work and approach each project with a more critical eye. Overall, these exercises have been an important part of my growth as a designer and have inspired me to keep exploring fresh ideas and innovative solutions.</p>
-            <div class="role-tag">
+              <div class="role-conatiner"> 
+              <div class="role-tag">
               <span>Role: UI/UX Designer</span>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="about-image">
-          <img class="ui-hero-icon" src="img/uichallange.png" alt="UI Challenges icon">
+          
+          <div class="about-image">
+            <img src="img/uichallange.png" alt="Sonar app screens" style="width: 300px; height: 300px; border: 2px solid #000; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          </div>
+          </div>
+
+
+
         </div>
       </div>
     </div>
@@ -196,6 +211,84 @@
       </div>
     </div>
   </footer>
+
+  <!-- Image lightbox overlay (click off to close) -->
+  <div id="image-lightbox" class="image-lightbox" aria-hidden="true">
+    <img id="lightbox-img" alt="" />
+    <div class="hint">Click outside image to close</div>
+  </div>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
+  </script>
+
+  <script>
+    // Image zoom/lightbox
+    (function () {
+      const lightbox = document.getElementById('image-lightbox');
+      const lightboxImg = document.getElementById('lightbox-img');
+      if (!lightbox || !lightboxImg) return;
+
+      const openLightbox = (src, alt = '') => {
+        lightboxImg.src = src;
+        lightboxImg.alt = alt;
+        lightbox.classList.add('open');
+        lightbox.setAttribute('aria-hidden', 'false');
+        document.body.style.overflow = 'hidden';
+      };
+
+      const closeLightbox = () => {
+        lightbox.classList.remove('open');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImg.src = '';
+        document.body.style.overflow = '';
+      };
+
+      const zoomImages = document.querySelectorAll('.experience-card img, .persona-images img, .project-mockups img, .hero-img img, .about-image img, .sonar-imgs img, .luminary-images img');
+      zoomImages.forEach(img => {
+        img.classList.add('zoomable');
+        img.addEventListener('click', (e) => {
+          e.stopPropagation();
+          openLightbox(img.src, img.alt);
+        });
+      });
+
+      lightbox.addEventListener('click', (e) => {
+        if (e.target === lightbox) {
+          closeLightbox();
+        }
+      });
+
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+          closeLightbox();
+        }
+      });
+    })();
+  </script>
 
 </body>
 </html>

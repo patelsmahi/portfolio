@@ -25,6 +25,11 @@
         <li><a href="patelmahi.pdf" target="_blank">Resume</a></li>
         <li><a href="https://www.linkedin.com/in/mahispatel" target="_blank" class="linkedin-icon"><i class="fab fa-linkedin-in"></i></a></li>
       </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
     </nav>
   </header>
 
@@ -34,11 +39,19 @@
       <div class="about-content case-row">
         <div class="bio-section">
           <h1 class="page-title">Luminary</h1>
+
+
+          <div class="about-sonar-section">
           <div class="bio-text">
-            <p>Luminary is an accessibility-focused navigation app developed by App Team Carolina to help students at UNC Chapel Hill find safe and accessible routes across campus. The app allows users to plan their paths while avoiding obstacles such as construction zones or uneven terrain. It also includes a community-driven reporting feature, enabling users to share real-time updates about new barriers on common routes.
+            <p>Luminary is a navigation app built by App Team Carolina to help UNC Chapel Hill students find safe, accessible routes around campus. It allows users to plan paths that avoid obstacles like construction and uneven terrain, and includes a community feature for reporting new barriers in real time.
             <br>
             <br>
-            During usability testing, several users expressed a desire for a more comfortable viewing experience in different lighting conditions. In response, my role focused on designing a light mode interface that maintained visual clarity while preserving the app’s accessible color contrast standards. Through this project, I learned how thoughtful visual design choices can directly enhance inclusivity and usability for all users.</p>
+            <b>Problem:</b> Luminary users had difficulty viewing the app comfortably in different lighting conditions, especially without a light mode option.
+            <br>
+            <br>
+            <b>Solution & Outcome:</b> In response to user feedback, I designed a light mode that improved visibility in bright environments while maintaining strong color contrast and accessibility standards. I also ensured the design stayed consistent with the app’s existing brand. This update made the app more flexible and comfortable to use without changing its core experience. The project reinforced how listening to users and making thoughtful visual adjustments can significantly improve usability and inclusivity.
+         
+          </p>
             <div class="role-conatiner"> 
               <div class="role-tag">
               <span>Role: UI/UX Designer</span>
@@ -48,9 +61,13 @@
               </div>
             </div>
           </div>
-        </div>
-        <div class="about-image">
-          <img class="ui-hero-icon" src="img/lumlg.png" alt="Luminary app mockup">
+          <div class="about-image">
+            <img src="img/lumlg.png" alt="Sonar app screens" style="width: 300px; height: auto; border: 2px solid #000; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+          </div>
+          </div>
+
+
+
         </div>
       </div>
     </div>
@@ -61,7 +78,7 @@
     <div class="experience-container">
       <div class="experience-title"><h1>Process</h1></div>
       <!-- Sticky Side Navigation (inside Process section only) -->
-      <nav class="sticky-side-nav" id="process-nav">
+      <!-- <nav class="sticky-side-nav" id="process-nav">
         <a href="#user-research" class="sticky-nav-item active" data-section="user-research">
           <span class="nav-indicator"></span>
           Research
@@ -74,13 +91,13 @@
           <span class="nav-indicator"></span>
           UI Iteration
         </a>
-      </nav>
+      </nav> -->
       <div class="timeline">
         <div class="timeline-line"></div>
 
         <div class="experience-item" id="user-research">
           <div class="timeline-dot dot-1"></div>
-          <div class="experience-card">
+          <div class="experience-card" style="border: 2px solid #222;">
             <div class="experience-row">
               <div class="experience-text">
                 <h3>User Research & Insights</h3>
@@ -96,7 +113,7 @@
 
         <div class="experience-item" id="design-goals">
           <div class="timeline-dot dot-2"></div>
-          <div class="experience-card">
+          <div class="experience-card" style="border: 2px solid #222;">
             <div class="experience-row">
               <div class="experience-text">
                 <h3>Design Goals</h3>
@@ -139,7 +156,7 @@
 
         <div class="experience-item" id="ui-iteration">
           <div class="timeline-dot dot-3"></div>
-          <div class="experience-card">
+          <div class="experience-card" style="border: 2px solid #222;">
             <div class="experience-row">
               <div class="experience-text">
                 <h3>UI Iteration</h3>
@@ -175,7 +192,7 @@
   <section class="experience" id="outcome">
     <div class="experience-container">
       <div class="experience-title"><h1>Outcome</h1></div>
-      <div class="experience-card">
+      <div class="experience-card" style="border: 2px solid #222;">
         <h3>Results</h3>
         <p>Working on Luminary gave me the opportunity to directly address user needs by introducing a light mode interface. While my role focused on adapting the existing design, the process pushed me to think critically about accessibility, consistency, and user preference. By maintaining brand identity and ensuring strong readability in both modes, I was able to expand the app’s flexibility without compromising its core design. This project reinforced the importance of listening to user feedback and demonstrated how even small interface adjustments can have a meaningful impact on overall usability</p>
       </div>
@@ -192,7 +209,39 @@
       </div>
     </div>
   </footer>
-  
+
+  <!-- Image lightbox overlay (click off to close) -->
+  <div id="image-lightbox" class="image-lightbox" aria-hidden="true">
+    <img id="lightbox-img" alt="" />
+    <div class="hint">Click outside image to close</div>
+  </div>
+
+  <script>
+    // Hamburger menu toggle
+    const hamburger = document.querySelector('.hamburger');
+    const navLinks = document.querySelector('.nav-links');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('active');
+      hamburger.classList.toggle('active');
+    });
+
+    // Close menu when clicking on a link
+    document.querySelectorAll('.nav-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+        navLinks.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
+  </script>
 
     <script>
       // Header height CSS var + local headerHeight value
@@ -250,5 +299,48 @@
         });
       });
     </script>
-</body>
-</html>
+
+<script>
+  // Image zoom/lightbox
+  (function () {
+    const lightbox = document.getElementById('image-lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    if (!lightbox || !lightboxImg) return;
+
+    const openLightbox = (src, alt = '') => {
+      lightboxImg.src = src;
+      lightboxImg.alt = alt;
+      lightbox.classList.add('open');
+      lightbox.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+    };
+
+    const closeLightbox = () => {
+      lightbox.classList.remove('open');
+      lightbox.setAttribute('aria-hidden', 'true');
+      lightboxImg.src = '';
+      document.body.style.overflow = '';
+    };
+
+    const zoomImages = document.querySelectorAll('.experience-card img, .persona-images img, .project-mockups img, .hero-img img, .about-image img, .sonar-imgs img, .luminary-images img');
+    zoomImages.forEach(img => {
+      img.classList.add('zoomable');
+      img.addEventListener('click', (e) => {
+        e.stopPropagation();
+        openLightbox(img.src, img.alt);
+      });
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        closeLightbox();
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && lightbox.classList.contains('open')) {
+        closeLightbox();
+      }
+    });
+  })();
+</script>
