@@ -634,6 +634,7 @@ footer {
   
   .project-card {
     height: 450px;
+    height: fit-content;
   }
   
   .project-card img {
@@ -766,6 +767,7 @@ footer {
   .project-card {
     padding: 1rem;
     height: 380px;
+    height: fit-content;
   }
   
   .project-card img {
@@ -1979,6 +1981,17 @@ img.zoomable {
     grid-template-columns: 1fr;
     gap: 0.5rem;
   }
+
+  .numberbubble1, .numberbubble2, .numberbubble3{
+  background-color: #E0D9F8;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
 }
 
 /* Full-card clickable project cards */
@@ -2138,7 +2151,7 @@ img.zoomable {
   flex: 1; /* stretch the content card to fill the column */
 }
 
-.numberbubble, .numberbubble2, .numberbubble3{
+.numberbubble1, .numberbubble2, .numberbubble3{
   background-color: #E0D9F8;
   border-radius: 100%;
   width: 40px;
@@ -2147,6 +2160,10 @@ img.zoomable {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
+}
+
+.numberbubble{
+  background-color: #E0D9F8;
 }
 
 .numberbubble2{
@@ -2264,6 +2281,33 @@ img.zoomable {
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+  }
+
+  #userflowimgs figure {
+    max-width: 100%;
+    padding-left: 0;
+  }
+
+  #wireframeimgs {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #wireframeimgs img {
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+  }
+
+  #wireframeimgs2 {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #wireframeimgs2 img {
     max-width: 100%;
     width: 500px;
     height: auto;
