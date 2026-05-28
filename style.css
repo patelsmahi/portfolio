@@ -155,6 +155,53 @@ header {
   font-weight: 500;
   color: #222;
 }
+.tag2 {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #222;
+}
+
+.skill-blob{
+  background: #E0D9F8;
+  border: 2px solid #222;
+  border-radius: 25px;
+  padding: 0.2rem 1rem;
+  display: inline-block;
+  margin-top: 1rem;
+}
+
+
+.interactive-proto {
+  width: 100%;
+  max-width: 800px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.interactive-proto h3 {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #222;
+  margin-bottom: .7rem;
+  text-align: center;
+}
+
+.interactive-proto iframe {
+  width: 100%;
+  min-height: 65vh;
+  aspect-ratio: 16 / 9;
+  border-radius: 18px;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+}
+
+.Jury-X-Proto{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
 .hero-text h1 {
   font-size: 2.5rem;
@@ -462,9 +509,14 @@ footer {
     gap: 2rem;
   }
 
+  
   /* Hide about/case study images on iPad */
   .about-image {
     display: none;
+  }
+
+  .about-image2 {
+    display:none;
   }
   
   .bio-section {
@@ -508,6 +560,8 @@ footer {
   header {
     padding: 0.8rem 1rem;
   }
+
+  
   
   .navbar {
     flex-direction: row;
@@ -652,6 +706,14 @@ footer {
     height: 350px;
   }
   
+  .headerproto {
+    padding: 0 0.5rem;
+  }
+
+  .interactive-proto iframe {
+    min-height: 45vh;
+  }
+  
   .timeline {
     padding-left: 0;
   }
@@ -662,6 +724,15 @@ footer {
   
   .experience-card {
     margin-left: 0;
+  }
+
+  .JXcard-container-txt-header{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+
+
   }
 }
 
@@ -1431,10 +1502,24 @@ img.zoomable {
   box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.25);
 }
 
-.image-lightbox .hint {
+.image-lightbox .lightbox-close {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 2rem;
+  cursor: pointer;
+  line-height: 1;
+  padding: 0.25rem 0.5rem;
+}
+
+.image-lightbox .hint {
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
   color: rgba(255, 255, 255, 0.9);
   font-size: 0.9rem;
   pointer-events: none;
@@ -1563,13 +1648,13 @@ img.zoomable {
   text-align: center;
 }
 
-.interactive-proto{
+/* .interactive-proto{
   display: flex;
   align-items: center;
   justify-content: center;
   text-align: center;
   flex-direction: column;
-}
+} */
 
 @media (max-width: 828px) {
   /* Stack experience row images below text */
@@ -1628,6 +1713,8 @@ img.zoomable {
     row-gap: 1rem;
   }
 
+  
+
 }
 
 @media (max-width: 768px) {
@@ -1651,6 +1738,7 @@ img.zoomable {
     max-width: 100%;
     width: 100%;
   }
+
 }
 
 @media (max-width: 1040px) {
@@ -1663,6 +1751,8 @@ img.zoomable {
     display: flex;
     flex-direction: column;
   }
+
+  
 }
 
 /* Case study hero row alignment */
@@ -1941,3 +2031,298 @@ img.zoomable {
   gap: 2rem;
 }
 
+/* Jury-X layout attempt 2 */
+
+.experience2 {
+  background: white;
+  padding: 4rem 5rem;
+  position: relative;
+}
+
+.about-container2 {
+  max-width: 1200px;
+  margin: 0 auto;
+  z-index: 2;
+  display: flex;
+  flex-direction: row;
+
+}
+
+.about-hero2 {
+  background: #E0F2F7;
+  padding: 4rem 2rem;
+  min-height: 60vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-content2 {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: 3rem;
+  align-items: center;
+}
+
+.about-image2 img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 15px;
+  border: none;
+  background-color: white;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+}
+
+.experience-title2 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.experience-title2 h1 {
+  background: white;
+  border: 2px solid #222;
+  border-radius: 50px;
+  padding: 0.8rem 2rem;
+  display: inline-block;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #222;
+  margin: 0;
+}
+
+
+
+.bio-section2{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1; /* allow the description column to grow and fill available vertical space */
+}
+
+.about-sonar-section2{
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+}
+
+
+.headerproto{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  
+}
+
+.Jury-X-Overview{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+} 
+
+.Jury-X-Overview-txt{
+  background: white;
+  border: 2px solid #222;
+  border-radius: 15px;
+  padding: 2rem;
+  display: flex;
+  margin: 1rem auto;
+  flex-direction: column;
+  gap: 1rem;
+  flex: 1; /* stretch the content card to fill the column */
+}
+
+.numberbubble, .numberbubble2, .numberbubble3{
+  background-color: #E0D9F8;
+  border-radius: 100%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.numberbubble2{
+  background-color: #F8E7F1;
+}
+
+.numberbubble3{
+  background-color: #E0F2F7;
+}
+
+.numberbubble, .numberbubble2 h3{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+
+.JXcard-container-txt-header{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+.JXcard-container-txt-internal{
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  gap: 1rem;
+  flex: 1; 
+}
+
+.JXcard-container-txt-internal img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.JXcard-container-txt-image img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  max-height: fit-content;
+  border: 2px solid #000000
+}
+
+#userflowimgs figure{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  max-width: 800px;
+  padding-left: 1.5rem;
+}
+
+#wireframeimgs{
+  display: flex;
+  flex-direction: row;
+  height: auto;
+}
+
+#wireframeimgs{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow: hidden;
+  gap: 2rem;
+}
+
+#wireframeimgs img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 250px;
+  height: auto;
+  border: 2px solid #000000;
+}
+
+#wireframeimgs2{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow: hidden;
+  gap: 2rem;
+  margin-top: 10px;
+}
+
+#wireframeimgs2 img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 350px;
+  height: fit-content;
+  border: 2px solid #000000;
+}
+
+
+@media (max-width: 850px) {
+  .JXcard-container-txt-internal {
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+
+  }
+
+  .JXcard-container-txt-image img {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 100%;
+    width: 500px;
+    height: auto;
+  }
+}
+
+
+.JXcard-container-txt-image-persona img{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 400px;
+  max-height: fit-content;
+  border: 2px solid #000000;
+}
+
+.JXcard-container-txt-image-persona h4{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.JXcard-container-txt-internal-persona{
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  /* gap: 2rem; */
+  flex: 1; /* stretch the content card to fill the column */
+}
+
+.JXcard-container-txt-image-persona{
+  display: flex;
+  margin: 0 auto;
+  flex-direction: row;
+  gap: 5rem;
+  flex: 1; /* stretch the content card to fill the column */
+}
+
+
+
+@media (max-width: 850px) {
+  .JXcard-container-txt-image-persona {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .JXcard-container-txt-image-persona > * {
+    width: 100%;
+  }
+
+  .JXcard-container-txt-image-persona img {
+    max-width: 100%;
+    height: auto;
+  }
+  .JXcard-container-txt-image-persona{
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+    gap: 2rem;
+    flex: 1; /* stretch the content card to fill the column */
+  }
+}
