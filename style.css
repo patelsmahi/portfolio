@@ -1591,23 +1591,33 @@ img.zoomable {
   font-size: 3rem;
 }
 
-.luminary-images img{
-  width: 100%;
-  max-width: 500px;
-  height: auto;
-  object-fit: contain !important;
-  border-radius: 25px;
+.luminary-images {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
 }
 
-
-.luminary-images figure {
-  display: flex;
-  flex-direction: row;
-  gap: 5px;
+.luminary-images img,
+.ui-image-row img {
   width: 100%;
-  justify-content: center;
-  align-items: start;
-  border-radius: 50px;
+  max-width: 150px;
+  height: auto;
+  object-fit: contain;
+  border-radius: 16px;
+  border: 1px solid #d7d7d7;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.08);
+  flex: 0 1 150px;
+}
+
+.luminary-images figure,
+.ui-image-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.9rem;
+  margin: 0;
+  width: 100%;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
 .sonar-imgs{
@@ -1671,13 +1681,18 @@ img.zoomable {
     margin-top: 1rem;
   }
 
-    .luminary-images img {
-    width: 100%;
+  .luminary-images img,
+  .ui-image-row img {
+    width: calc(50% - 0.45rem);
+    max-width: 150px;
+    min-width: 110px;
     height: auto;
-    object-fit: contain !important;
-    } 
+    object-fit: contain;
+  }
 
-  .luminary-images figure {
+  .luminary-images figure,
+  .ui-image-row {
+    justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
     border-radius: 25px;
@@ -1689,12 +1704,10 @@ img.zoomable {
     align-items: center; /* keeps images centered when stacked */
   }
 
-  .luminary-images img,
   .sonar-imgs img {
     width: 100%;
     max-width: 500px;
     height: auto;
-    
   }
 
   .page-title {
@@ -2338,6 +2351,10 @@ img.zoomable {
   flex: 1; /* stretch the content card to fill the column */
 }
 
+#lum-design-goals{
+  padding-left: 2rem;
+
+}
 .JXcard-container-txt-image-persona{
   display: flex;
   margin: 0 auto;
